@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.jockxtar.estadisticasotorrino"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.jockxtar.estadisticasotorrino"
