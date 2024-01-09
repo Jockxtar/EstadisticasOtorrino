@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "EstadisticasOtorrino"
+rootProject.name = "Estadisticas Otorrino"
 include(":app")
