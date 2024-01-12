@@ -49,72 +49,67 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainActivityContent() {
-    Box {
-        val modifierPadding = Modifier.padding(8.dp)
+    val thickPadding = Modifier.padding(16.dp)
 
-
-        Column {
-
-            Scaffold(
-                topBar = {
-                    TopAppBar(
-                        /*colors = topAppBarColors(
-                            containerColor = MaterialTheme.colorScheme.primaryContainer,
-                            titleContentColor = MaterialTheme.colorScheme.primary,
-                        ),*/
-                        title = {
-                            Text("Top app bar")
-                        }
-                    )
-                },
-                bottomBar = {
-                    BottomAppBar(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer,
-                        contentColor = MaterialTheme.colorScheme.primary,
-                    ) {
-                        Text(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            textAlign = TextAlign.Center,
-                            text = "Bottom app bar",
-                        )
-                    }
+    Scaffold(
+        modifier = thickPadding,
+        topBar = {
+            TopAppBar(
+                /*colors = topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.primary,
+                ),*/
+                title = {
+                    Text("Top app bar")
                 }
             )
-            { innerPadding ->
-                Column(
+        },
+        bottomBar = {
+            BottomAppBar(
+                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                contentColor = MaterialTheme.colorScheme.primary,
+            ) {
+                Text(
                     modifier = Modifier
-                        .padding(innerPadding),
-                    verticalArrangement = Arrangement.spacedBy(16.dp),
-                ) {
-                    Text(text = "Hola Mundo")
+                        .fillMaxWidth(),
+                    textAlign = TextAlign.Center,
+                    text = "Bottom app bar",
+                )
+            }
+        }
+    )
+    { innerPadding ->
+        Column(
+            modifier = Modifier
+                .padding(innerPadding),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            Text(text = "Hola Mundo")
 
-                    LazyColumn {
-                        item {
-                            Text("Lista de pacientes")
-                        }
-                        // Add a single item
-                        item {
-                            PacienteItem(Paciente("Pepe", 20, "Otitis"))
-                        }
+            LazyColumn {
+                item {
+                    Text("Lista de pacientes")
+                }
+                // Add a single item
+                item {
+                    PacienteItem(Paciente("Pepe", 20, "Otitis"))
+                }
 
-                        // Add 5 items
-                        items(3) { index ->
-                            PacienteItem(Paciente("José", 56, "Vértigo"))
-                        }
+                // Add 5 items
+                items(3) { index ->
+                    PacienteItem(Paciente("José", 56, "Vértigo"))
+                }
 
-                        // Add another single item
-                        item {
-                            Text(text = "Last item")
-                        }
-                    }
-                    Image(
-                            painter = painterResource(id = R.drawable.pepe),
-                    contentDescription = stringResource(id = R.string.pepe_cd),
-                    )
-
+                // Add another single item
+                item {
+                    Text(text = "Last item")
                 }
             }
+            Image(
+                painter = painterResource(id = R.drawable.pepe),
+                contentDescription = stringResource(id = R.string.pepe_cd),
+            )
+
         }
     }
 }
